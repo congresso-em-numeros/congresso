@@ -4,11 +4,12 @@ class Connection():
 
     def perform_request(self, url):
 
-        try:
-            req = requests.get(url)
+        req = requests.get(url)
+
+        if req.status_code == 200:
 
             return req.text
 
-        except Exception as e:
+        else:
+            req.raise_for_status()
 
-            raise ConnectionError(e)
