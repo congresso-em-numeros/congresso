@@ -1,17 +1,19 @@
-=======
-methods
-=======
+===============================
+Congresso Em Numeros API Client
+===============================
 
+This is a Python Client for the legislative federal houses of Brazil.
 
-Add a short description here!
-
+We intend to cover and maintain all the API endpoints from Camara dos Deputados and Senado Federal
 
 Description
 ===========
 
-A longer description of your project goes here...
+To use the Camara Client just::
 
+    import cn_api_client as cn
 
+    camara = cn.Camara()
 Note
 ====
 
