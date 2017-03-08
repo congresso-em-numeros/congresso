@@ -5,7 +5,6 @@ class SessoesClient(Connection):
 
     def listar_discursos_plenario(self,
                                 dataIni=None,
-                                data=None,
                                 dataFim=None,
                                 codigoSessao=None,
                                 parteNomeParlamentar=None,

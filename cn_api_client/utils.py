@@ -38,12 +38,18 @@ def _treat_inputs(value):
     """
     Make sure that inputs are in the right type
 
+    Ints and floats are converted to strings
+
     Args:
-        value: value input
+        value: str, int, float
 
-    Returns:
-
+    Returns: Ints and floats are converted to strings
     """
+
+    if not isinstance(value, (int, float, str)):
+        raise AttributeError('This is a {}.\n'
+                             'Make sure to insert an int, float or str'
+                             .format(type(value)))
 
     if isinstance(value, (int, float)):
         value = str(value)
@@ -55,6 +61,7 @@ def _must_contain(this=None, keys=None):
     """
     Check whether the specified values exists on a dict
 
+    This function presumes that all keys are mapped on this dict
     Args:
         this: dict :: variable names and their values
         keys: list :: variable names that must not be None
@@ -64,11 +71,12 @@ def _must_contain(this=None, keys=None):
         Raise error if there are missing values
     """
 
-    result = [{k: v == None} for k, v in this.items() if k in keys]
+    result = {k: v is None for k, v in this.items() if k in keys}
 
-    for r in result:
-        if True in r.values():
-            raise AttributeError('{} must have a value'.format(list(r.keys())[0]))
+    missing_keys = [k for k, v in result.items() if v is True]
+
+    if len(missing_keys) != 0:
+        raise AttributeError('{} must have a value'.format(','.join(str(p) for p in missing_keys)))
 
     else:
         return True
