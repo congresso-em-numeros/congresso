@@ -9,9 +9,9 @@ We intend to cover and maintain all the API endpoints from Camara dos Deputados 
 Description
 ===========
 
-To use the Camara Client just::
+To use the Camara Client just ::
 
-    import cn_api_client as cn
+    import congresso as cn
 
     camara = cn.Camara()
 Note
