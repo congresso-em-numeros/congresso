@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 from ..connection import Connection
 from ..utils import _make_url, _must_contain
 
@@ -6,7 +9,7 @@ class OrgaosClient(Connection):
 
     def listar_cargos_orgaos_legislativo(self):
         """
-        Retorna a lista dos tipos de cargo para os √≥rg√£os legislativos da C√¢mara dos Deputados (ex: presidente, primeiro-secret√°rio, etc)
+        Retorna a lista dos tipos de cargo para os Ûrg„os legislativos da C‚mara dos Deputados (ex: presidente, primeiro-secret·rio, etc)
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ListarCargosOrgaosLegislativosCD
@@ -21,7 +24,7 @@ class OrgaosClient(Connection):
 
     def listar_tipos_orgaos(self):
         """
-        Retorna a lista dos tipos de √≥rg√£os que participam do processo legislativo na C√¢mara dos Deputados
+        Retorna a lista dos tipos de Ûrg„os que participam do processo legislativo na C‚mara dos Deputados
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ListarTiposOrgaos
@@ -41,7 +44,7 @@ class OrgaosClient(Connection):
                         dataIni=None,
                         codOrgao=None):
         """
-        Retorna o andamento de uma proposi√ß√£o pelos √≥rg√£os internos da C√¢mara a partir de uma data espec√≠fica
+        Retorna o andamento de uma proposiÁ„o pelos Ûrg„os internos da C‚mara a partir de uma data especÌfica
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterAndamento?sigla=PL&numero=3962&ano=2008&dataIni=01/01/2009&codOrgao=
@@ -50,11 +53,11 @@ class OrgaosClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/orgaos/obterandamento
 
         Args:
-            sigla:    String(Obrigatorio) :: Sigla do tipo de proposi√ß√£o
-            numero:   Int(Obrigatorio)    :: Numero da proposi√ß√£o
-            ano:      Int(Obrigatorio)    :: Ano da proposi√ß√£o
-            dataIni:  String(Opcional)    :: Data a partir da qual as tramita√ß√µes do hist√≥rico de andamento ser√£o retornadas (dd/mm/aaaa)
-            codOrgao: String(Opcional)    :: ID do √≥rg√£o numerador da proposi√ß√£o
+            sigla:    String(Obrigatorio) :: Sigla do tipo de proposiÁ„o
+            numero:   Int(Obrigatorio)    :: Numero da proposiÁ„o
+            ano:      Int(Obrigatorio)    :: Ano da proposiÁ„o
+            dataIni:  String(Opcional)    :: Data a partir da qual as tramitaÁıes do histÛrico de andamento ser„o retornadas (dd/mm/aaaa)
+            codOrgao: String(Opcional)    :: ID do Ûrg„o numerador da proposiÁ„o
         """
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterAndamento?'
         params = dict([('sigla', sigla),
@@ -74,7 +77,7 @@ class OrgaosClient(Connection):
                                                  ano=None,
                                                  numero=None):
         """
-        Retorna as emendas, substitutivos e reda√ß√µes finais de uma determinada proposi√ß√£o
+        Retorna as emendas, substitutivos e redaÁıes finais de uma determinada proposiÁ„o
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterEmendasSubstitutivoRedacaoFinal?tipo=PL&numero=3962&ano=2008
@@ -83,9 +86,9 @@ class OrgaosClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/orgaos/obteremendassubstitutivoredacaofinal
 
         Args:
-            tipo:   String (Obrigatorio) :: Sigla do tipo de proposi√ß√£o
-            ano:    Int (Obrigatorio) 	 :: Numero da proposi√ß√£o
-            numero: Int (Obrigatorio) 	 :: Ano da proposi√ß√£o
+            tipo:   String (Obrigatorio) :: Sigla do tipo de proposiÁ„o
+            ano:    Int (Obrigatorio) 	 :: Numero da proposiÁ„o
+            numero: Int (Obrigatorio) 	 :: Ano da proposiÁ„o
         """
 
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterEmendasSubstitutivoRedacaoFinal?'
@@ -104,7 +107,7 @@ class OrgaosClient(Connection):
                                         ano=None,
                                         numero=None):
         """
-        Retorna os dados de relatores e pareces, e o link para a √≠ntegra de uma determinada proposi√ß√£o
+        Retorna os dados de relatores e pareces, e o link para a Ìntegra de uma determinada proposiÁ„o
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterIntegraComissoesRelator?tipo=PL&numero=3962&ano=2008
@@ -113,9 +116,9 @@ class OrgaosClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/orgaos/obterintegracomissoesrelator
 
         Args:
-            tipo:   String (Obrigatorio) :: Sigla do tipo de proposi√ß√£o
-            ano:    Int (Obrigatorio) 	 :: Numero da proposi√ß√£o
-            numero: Int (Obrigatorio) 	 :: Ano da proposi√ß√£o
+            tipo:   String (Obrigatorio) :: Sigla do tipo de proposiÁ„o
+            ano:    Int (Obrigatorio) 	 :: Numero da proposiÁ„o
+            numero: Int (Obrigatorio) 	 :: Ano da proposiÁ„o
         """
 
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterIntegraComissoesRelator?'
@@ -133,7 +136,7 @@ class OrgaosClient(Connection):
 
     def obter_membros_orgaos(self, idOrgao=None):
         """
-        Retorna os parlamentares membros de uma determinada comiss√£o
+        Retorna os parlamentares membros de uma determinada comiss„o
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterMembrosOrgao?IDOrgao=2004
@@ -155,7 +158,7 @@ class OrgaosClient(Connection):
                                               params=params))
     def obter_orgaos(self):
         """
-        Retorna a lista de √≥rg√£os legislativos da C√¢mara dos Deputados (comiss√µes, Mesa Diretora, conselhos, etc.)
+        Retorna a lista de Ûrg„os legislativos da C‚mara dos Deputados (comissıes, Mesa Diretora, conselhos, etc.)
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterOrgaos
@@ -173,7 +176,7 @@ class OrgaosClient(Connection):
                     dataIni=None,
                     dataFim=None):
         """
-        Retorna as pautas das reuni√µes de comiss√µes e das sess√µes plen√°rias realizadas em um determinado per√≠odo
+        Retorna as pautas das reuniıes de comissıes e das sessıes plen·rias realizadas em um determinado perÌodo
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterPauta?IDOrgao=2004&datIni=01/01/2012&datFim=30/04/2012
@@ -182,9 +185,9 @@ class OrgaosClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/orgaos/obterpauta
 
         Args:
-            idOrgao: Int(Obrigatorio) 	ID do √≥rg√£o (comiss√£o) da C√¢mara dos Deputados
-            dataIni: String(Opcional) 	O m√©toto retorna a pauta das reuni√µes que foram realizadas em uma data maior ou igual a datIni
-            dataFim: String(Opcional) 	O m√©toto retorna a pauta das reuni√µes que foram realizadas em uma data menor ou igual a datFim
+            idOrgao: Int(Obrigatorio) 	ID do Ûrg„o (comiss„o) da C‚mara dos Deputados
+            dataIni: String(Opcional) 	O mÈtoto retorna a pauta das reuniıes que foram realizadas em uma data maior ou igual a datIni
+            dataFim: String(Opcional) 	O mÈtoto retorna a pauta das reuniıes que foram realizadas em uma data menor ou igual a datFim
         """
 
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterPauta?'
@@ -203,7 +206,7 @@ class OrgaosClient(Connection):
                                          numero=None,
                                          ano=None):
         """
-        Retorna os dados do √∫ltimo despacho da proposi√ß√£o
+        Retorna os dados do ˙ltimo despacho da proposiÁ„o
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterRegimeTramitacaoDespacho?tipo=PL&numero=8035&ano=2010
@@ -212,9 +215,9 @@ class OrgaosClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/orgaos/obterregimetramitacaodespacho
 
         Args:
-            tipo:   String (Obrigatorio) ::	 Sigla do tipo de proposi√ß√£o
-            numero: Int (Obrigatorio) 	 ::  Numero da proposi√ß√£o
-            ano:    Int (Obrigatorio)    ::	 Ano da proposi√ß√£o
+            tipo:   String (Obrigatorio) ::	 Sigla do tipo de proposiÁ„o
+            numero: Int (Obrigatorio) 	 ::  Numero da proposiÁ„o
+            ano:    Int (Obrigatorio)    ::	 Ano da proposiÁ„o
         """
 
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Orgaos.asmx/ObterRegimeTramitacaoDespacho?'

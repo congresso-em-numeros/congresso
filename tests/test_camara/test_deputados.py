@@ -1,6 +1,6 @@
 import pytest
 from unittest import TestCase
-from cn_api_client.camara.deputados import DeputadosClient
+from congresso_api.camara.deputados import DeputadosClient
 
 
 class Tests(TestCase):

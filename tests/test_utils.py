@@ -1,4 +1,4 @@
-from cn_api_client.utils import _must_contain, _make_url, _treat_inputs
+from congresso_api.utils import _must_contain, _make_url, _treat_inputs
 from unittest import TestCase
 
 class Test(TestCase):

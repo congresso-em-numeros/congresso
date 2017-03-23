@@ -1,5 +1,8 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
 from ..connection import Connection
 from ..utils import _make_url, _must_contain
+
 
 class ProposicoesClient(Connection):
 
@@ -19,20 +22,11 @@ class ProposicoesClient(Connection):
                            emTramitacao=None
                            ):
         """
-        Retorna a lista de proposiÃ§Ãµes que satisfaÃ§am os critÃ©rios estabelecidos
+        Retorna a lista de proposições que satisfaçam os critérios estabelecidos
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?sigla=PL&
-                                                                                numero=&
-                                                                                ano=2011&
-                                                                                datApresentacaoIni=14/11/2011&
-                                                                                datApresentacaoFim=16/11/2011&
-                                                                                parteNomeAutor=&
-                                                                                idTipoAutor=&
-                                                                                siglaPartidoAutor=&
-                                                                                siglaUFAutor=&
-                                                                                generoAutor=&
-                                                                                codEstado=&
+(                                                                codEstado=&
                                                                                 codOrgaoEstado=&
                                                                                 emTramitacao=
 
@@ -40,24 +34,24 @@ class ProposicoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/proposicoes-1/listarproposicoes
 
         Args:
-            sigla: 	                    String(Obrigatorio se ParteNomeAutor nÃ£o for preenchido) ::	Sigla do tipo de proposiÃ§Ã£o
-            ano: 	                    Int(Obrigatorio se ParteNomeAutor nÃ£o for preenchido) 	 :: Ano da proposiÃ§Ã£o
+            sigla: 	                    String(Obrigatorio se ParteNomeAutor não for preenchido) ::	Sigla do tipo de proposição
+            ano: 	                    Int(Obrigatorio se ParteNomeAutor não for preenchido) 	 :: Ano da proposição
 
-            numero: 	                Int(Obrigatorio)    :: Numero da proposiÃ§Ã£o
-            datApresentacaoIni: 	    Date(Opcional) 	 :: Menor data desejada para a data de apresentaÃ§Ã£o da proposiÃ§Ã£o.
+            numero: 	                Int(Obrigatorio)    :: Numero da proposição
+            datApresentacaoIni: 	    Date(Opcional) 	 :: Menor data desejada para a data de apresentação da proposição.
                                                             Formato: DD/MM/AAAA
-            datApresentacaoFim: 	    Date(Opcional) 	 :: Maior data desejada para a data de apresentaÃ§Ã£o da proposiÃ§Ã£o
+            datApresentacaoFim: 	    Date(Opcional) 	 :: Maior data desejada para a data de apresentação da proposição
                                                             Formato: DD/MM/AAAA
-            idTipoAutor: 	            Int(Optional) 	 :: Identificador do tipo de Ã³rgÃ£o autor da proposiÃ§Ã£o,
+            idTipoAutor: 	            Int(Optional) 	 :: Identificador do tipo de órgão autor da proposição,
                                                             como obtido na chamada ao ListarTiposOrgao
-            parteNomeAutor: 	        String(Optional) :: Parte do nome do autor(5 ou + caracteres) da proposiÃ§Ã£o.
-            siglaPartidoAutor: 	        String(Optional) :: Sigla do partido do autor da proposiÃ§Ã£o
-            siglaUfAutor: 	            String(Optional) :: UF de representaÃ§Ã£o do autor da proposiÃ§Ã£o
-            generoAutor: 	            String(Optional) :: GÃªnero do autor<BR>M - Masculino; F - Feminino;
+            parteNomeAutor: 	        String(Optional) :: Parte do nome do autor(5 ou + caracteres) da proposição.
+            siglaPartidoAutor: 	        String(Optional) :: Sigla do partido do autor da proposição
+            siglaUfAutor: 	            String(Optional) :: UF de representação do autor da proposição
+            generoAutor: 	            String(Optional) :: Gênero do autor<BR>M - Masculino; F - Feminino;
                                                             Default - Todos
-            emTramitacao: 	            int(Opcional) 	 :: Indicador da situaÃ§Ã£o de tramitaÃ§Ã£o da proposiÃ§Ã£o
-                                                            1 - Em TramitaÃ§Ã£o no Congresso;
-                                                            2- TramitaÃ§Ã£o Encerrada no Congresso;
+            emTramitacao: 	            int(Opcional) 	 :: Indicador da situação de tramitação da proposição
+                                                            1 - Em Tramitação no Congresso;
+                                                            2- Tramitação Encerrada no Congresso;
                                                             Default - Todas
         """
 
@@ -87,7 +81,7 @@ class ProposicoesClient(Connection):
 
     def listar_siglas_tipo_proposicao(self):
         """
-        Retorna a lista de siglas de proposiÃ§Ãµes
+        Retorna a lista de siglas de proposições
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarSiglasTipoProposicao
@@ -102,7 +96,7 @@ class ProposicoesClient(Connection):
 
     def listar_situacoes_proposicao(self):
         """
-        Retorna a lista de situaÃ§Ãµes para proposiÃ§Ãµes
+        Retorna a lista de situações para proposições
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarSituacoesProposicao
@@ -117,7 +111,7 @@ class ProposicoesClient(Connection):
 
     def listar_tipos_autores(self):
         """
-        Retorna a lista de situaÃ§Ãµes para proposiÃ§Ãµes
+        Retorna a lista de situações para proposições
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarTiposAutores
@@ -136,7 +130,7 @@ class ProposicoesClient(Connection):
                          numero=None,
                          idProp=None):
         """
-        Retorna os dados de uma determinada proposiÃ§Ã£o
+        Retorna os dados de uma determinada proposição
 
         Grupo I
         API ENDPOINT:
@@ -156,12 +150,12 @@ class ProposicoesClient(Connection):
             Completar ou Grupo I ou Grupo II
 
             Grupo I
-            tipo:   String (Obrigatorio) ::	Sigla do tipo de proposiÃ§Ã£o
-            ano:    Int (Obrigatorio) 	 :: Numero da proposiÃ§Ã£o
-            numero: Int (Obrigatorio) 	 :: Ano da proposiÃ§Ã£o
+            tipo:   String (Obrigatorio) ::	Sigla do tipo de proposição
+            ano:    Int (Obrigatorio) 	 :: Numero da proposição
+            numero: Int (Obrigatorio) 	 :: Ano da proposição
 
             Grupo II
-            idProp: Int (Obrigatorio)    ::	ID da proposiÃ§Ã£o desejada
+            idProp: Int (Obrigatorio)    ::	ID da proposição desejada
         """
 
         params = dict([('tipo', tipo),
@@ -191,7 +185,7 @@ class ProposicoesClient(Connection):
                                  ano=None,
                                  numero=None):
         """
-        Retorna os votos dos deputados a uma determinada proposiÃ§Ã£o em votaÃ§Ãµes ocorridas no PlenÃ¡rio da CÃ¢mara dos Deputados
+        Retorna os votos dos deputados a uma determinada proposição em votações ocorridas no Plenário da Câmara dos Deputados
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ObterVotacaoProposicao?tipo=PL&numero=1992&ano=2007
@@ -200,9 +194,9 @@ class ProposicoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/proposicoes-1/obtervotacaoproposicao
 
         Args:
-            tipo:   String (Obrigatorio) ::	  Sigla do tipo de proposiÃ§Ã£o
-            ano:    Int (Obrigatorio) 	 ::   Numero da proposiÃ§Ã£o
-            numero: Int (Obrigatorio) 	 ::   Ano da proposiÃ§Ã£o
+            tipo:   String (Obrigatorio) ::	  Sigla do tipo de proposição
+            ano:    Int (Obrigatorio) 	 ::   Numero da proposição
+            numero: Int (Obrigatorio) 	 ::   Ano da proposição
         """
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoes?'
         params = dict([('tipo', tipo),
@@ -220,7 +214,7 @@ class ProposicoesClient(Connection):
                                                ano=None,
                                                tipo=None):
         """
-        Retorna a lista de proposiÃ§Ãµes que sofreram votaÃ§Ã£o em plenÃ¡rio em determinado ano.
+        Retorna a lista de proposições que sofreram votação em plenário em determinado ano.
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoesVotadasEmPlenario?ano=2013&tipo=
@@ -229,9 +223,10 @@ class ProposicoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/proposicoes-1/ProposicoesVotadasEmPlenario
 
         Args:
-            ano:  int(Obrigatorio) ::	Ano da proposiÃ§Ã£o
-            tipo: String(Opcional) ::	Tipo de proposiÃ§Ã£o
+            ano:  int(Obrigatorio) ::	Ano da proposição
+            tipo: String(Opcional) ::	Tipo de proposição
         """
+
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoesVotadasEmPlenario?'
         params = dict([('tipo', tipo),
                        ('ano', ano),
@@ -247,7 +242,7 @@ class ProposicoesClient(Connection):
                                                  dtInicio=None,
                                                  dtFim=None):
         """
-        Retorna lista de proposiÃ§Ãµes que tramitaram em determinado perÃ­odo. O perÃ­odo mÃ¡ximo Ã© de 7 dias
+        Retorna lista de proposições que tramitaram em determinado período. O período máximo é de 7 dias
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoesTramitadasNoPeriodo?dtInicio=20/09/2013&dtFim=21/09/2013
@@ -256,7 +251,7 @@ class ProposicoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/proposicoes-1/listarProposicoesTramitadasNoPeriodo
 
         Args:
-            dtInicio: String (Obrigatorio) ::	Data de inÃ­cio
+            dtInicio: String (Obrigatorio) ::	Data de início
             dtFim:    String (Obrigatorio) ::	Data final
         """
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoesTramitadasNoPeriodo?'

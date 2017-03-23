@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 from ..connection import Connection
 from ..utils import _make_url
 
@@ -5,7 +8,7 @@ class DeputadosClient(Connection):
 
     def obter_deputados(self):
         """
-        Retorna os deputados em exercÃ­cio na CÃ¢mara dos Deputados
+        Retorna os deputados em exercício na Camara dos Deputados
 
         API ENDPOINT:
         `<http://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterDeputados>`
@@ -20,8 +23,8 @@ class DeputadosClient(Connection):
 
     def obter_detalhes_deputado(self, ideCadastro=None, numLegislatura=None):
         """
-        Retorna detalhes dos deputados com histÃ³rico de participaÃ§Ã£o em comissÃµes, perÃ­odos de exercÃ­cio,
-        filiaÃ§Ãµes partidÃ¡rias e liderancas.
+        Retorna detalhes dos deputados com histórico de participação em comissões, períodos de exercício,
+        filiações partidárias e liderancas.
 
         API ENDPOINT:
         http://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?ideCadastro=141428&numLegislatura=
@@ -31,7 +34,7 @@ class DeputadosClient(Connection):
 
         Args:
             ideCadastro: String(Optinal):: Identificador do deputado obtido na chamada ao ObterDeputados.
-            numLegislatura: Int(Opcional) 	NÃºmero da legislatura. Campo vazio, todas as legislaturas do Deputado.
+            numLegislatura: Int(Opcional) 	Número da legislatura. Campo vazio, todas as legislaturas do Deputado.
         """
         base_url = 'http://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterDetalhesDeputado?'
         params = dict([('ideCadastro',  ideCadastro),
@@ -44,7 +47,7 @@ class DeputadosClient(Connection):
 
     def obter_lideres_bancadas(self):
         """
-        Retorna os deputados lÃ­deres e vice-lÃ­deres em exercÃ­cio das bancadas dos partidos
+        Retorna os deputados líderes e vice-líderes em exercício das bancadas dos partidos
 
         API ENDPOINT:
         http://www.camara.leg.br/SitCamaraWS/Deputados.asmx/ObterLideresBancadas
@@ -60,7 +63,7 @@ class DeputadosClient(Connection):
 
     def obter_partidos(self):
         """
-        Retorna os partidos com representaÃ§Ã£o na CÃ¢mara dos Deputados
+        Retorna os partidos com representação na Câmara dos Deputados
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterPartidosCD
@@ -76,7 +79,7 @@ class DeputadosClient(Connection):
     # This API endpoint is giving 403 ERROR
     def obter_partidos_bloco(self, idBloco=None, numLegislatura=None):
         """
-        Retorna os blocos parlamentares na CÃ¢mara dos Deputados.
+        Retorna os blocos parlamentares na Câmara dos Deputados.
 
         API ENDPOINT:
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/deputados/obterPartidosBlocoCD
@@ -86,7 +89,7 @@ class DeputadosClient(Connection):
 
         Args:
             ideCadastro: String(Optinal):: ID do Bloco Parlamentar
-            numLegislatura: Int(Opcional):: NÃºmero da Legislatura. Campo Vazio, legislatura atual. Apenas legislatura 53 em diante.
+            numLegislatura: Int(Opcional):: Número da Legislatura. Campo Vazio, legislatura atual. Apenas legislatura 53 em diante.
         """
 
         base_url = 'http://www.camara.gov.br/SitCamaraWS/Deputados.asmx/ObterPartidosBlocoCD?'

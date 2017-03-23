@@ -2,4 +2,5 @@
 Developers
 ==========
 
-* joao.carabetta@gmail.com <joao.carabetta@gmail.com>
+* João Carabetta  <joao.carabetta@gmail.com>
+

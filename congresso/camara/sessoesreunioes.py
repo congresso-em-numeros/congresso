@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+
 from ..connection import Connection
 from ..utils import _make_url, _must_contain
 
@@ -11,7 +14,7 @@ class SessoesClient(Connection):
                                 siglaPartido=None,
                                 siglaUF=None):
         """
-        Retorna a lista dos deputados que proferiam discurso no Plen√°rio da C√¢mara dos Deputados em um determinado per√≠odo.
+        Retorna a lista dos deputados que proferiam discurso no Plen·rio da C‚mara dos Deputados em um determinado perÌodo.
 
 
 
@@ -26,9 +29,9 @@ class SessoesClient(Connection):
         API DOC:
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/sessoesreunioes-2/listardiscursosplenario
 
-        dataIni: 	            Date (Obrigatorio) ::   Data in√≠cio do per√≠odo desejado (formato: DD/MM/AAAA)
-        dataFim: 	            Date (Obrigatorio) :: 	Data de fim do per√≠odo desejado (formato (DD/MM/AAAA)
-        codigoSessao: 	        String (Opcional)  ::	C√≥digo da sess√£o a ser pesquisada
+        dataIni: 	            Date (Obrigatorio) ::   Data inÌcio do perÌodo desejado (formato: DD/MM/AAAA)
+        dataFim: 	            Date (Obrigatorio) :: 	Data de fim do perÌodo desejado (formato (DD/MM/AAAA)
+        codigoSessao: 	        String (Opcional)  ::	CÛdigo da sess„o a ser pesquisada
         parteNomeParlamentar: 	String (Opcional)  ::	Parte do nome do Deputado a ser pesquisada
         siglaPartido: 	        String (Opcional)  ::	Sigla do Partido do Deputado
         siglaUF: 	            String (Opcional)  ::	Sigla da UF do Deputado
@@ -53,7 +56,7 @@ class SessoesClient(Connection):
                              siglaPartido=None,
                              siglaUF=None):
         """
-        Retorna a quantidade de sess√µes ocorridas no dia especificado e a presen√ßa dos parlamentares em cada sess√£o.
+        Retorna a quantidade de sessıes ocorridas no dia especificado e a presenÁa dos parlamentares em cada sess„o.
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasDia?
@@ -67,8 +70,8 @@ class SessoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/sessoesreunioes-2/listarpresencasdia
 
         Args:
-            data: 	                  Date(Obrigatorio) :: Data da Sess√£o (formato: DD/MM/AAAA)
-            numMatriculaParlamentar:   Int(Opcional) 	:: Numero da matr√≠cula do Parlamentar obtido pelo m√©todo ObterDeputados
+            data: 	                  Date(Obrigatorio) :: Data da Sess„o (formato: DD/MM/AAAA)
+            numMatriculaParlamentar:   Int(Opcional) 	:: Numero da matrÌcula do Parlamentar obtido pelo mÈtodo ObterDeputados
             siglaPartido: 	          String(Opcional) 	:: Sigla do Partido
             siglaUF:	              String(Opcional) 	:: Sigla da UF a ser pesquisada
         """
@@ -92,7 +95,7 @@ class SessoesClient(Connection):
                                      numMatriculaParlamentar=None,
                                      ):
         """
-        Retorna a quantidade de sess√µes ocorridas no Plen√°rio em um per√≠odo especificado e a presen√ßa dos parlamentares em cada sess√£o.
+        Retorna a quantidade de sessıes ocorridas no Plen·rio em um perÌodo especificado e a presenÁa dos parlamentares em cada sess„o.
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?
@@ -106,7 +109,7 @@ class SessoesClient(Connection):
         Args:
             dataIni 	                Date(Obrigatorio) ::	Data inicial
             dataFim 	                Date(Obrigatorio) ::	Data Final
-            numMatriculaParlamentar 	Int(Obrigatorio)  ::	Numero da matr√≠cula do Parlamentar obtido pelo m√©todo ObterDeputados
+            numMatriculaParlamentar 	Int(Obrigatorio)  ::	Numero da matrÌcula do Parlamentar obtido pelo mÈtodo ObterDeputados
         """
         base_url = 'http://www.camara.gov.br/SitCamaraWS/sessoesreunioes.asmx/ListarPresencasParlamentar?'
         params = dict([('dataIni', dataIni),
@@ -122,7 +125,7 @@ class SessoesClient(Connection):
 
     def listar_situacoes_reuniao_sessao(self):
         """
-        Retorna a lista de situa√ß√µes para as reuni√µes de comiss√£o e sess√µes plen√°rias da C√¢mara dos Deputados
+        Retorna a lista de situaÁıes para as reuniıes de comiss„o e sessıes plen·rias da C‚mara dos Deputados
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx/ListarSituacoesReuniaoSessao
@@ -142,11 +145,11 @@ class SessoesClient(Connection):
                                             numQuarto=None,
                                             numInsercao=None):
         """
-        Retorna o inteiro teor de um discurso proferido no Plen√°rio.
+        Retorna o inteiro teor de um discurso proferido no Plen·rio.
 
-        Modo de utiliza√ß√£o: primeiro deve-se chamar o m√©todo ListarDiscursosPlenario para obten√ß√£o dos par√¢metros
-        necess√°rios para a identifica√ß√£o √∫nica do discurso desejado. S√£o eles o c√≥digo da sess√£o, o n√∫mero do orador,
-        e mais 2 par√¢metros num√©ricos, numQuarto e numInsercao.
+        Modo de utilizaÁ„o: primeiro deve-se chamar o mÈtodo ListarDiscursosPlenario para obtenÁ„o dos par‚metros
+        necess·rios para a identificaÁ„o ˙nica do discurso desejado. S„o eles o cÛdigo da sess„o, o n˙mero do orador,
+        e mais 2 par‚metros numÈricos, numQuarto e numInsercao.
 
         API ENDPOINT:
         http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx/obterInteiroTeorDiscursosPlenario?
@@ -158,10 +161,10 @@ class SessoesClient(Connection):
         http://www2.camara.leg.br/transparencia/dados-abertos/dados-abertos-legislativo/webservices/sessoesreunioes-2/obterinteiroteordiscursosplenario
 
         Args:
-            codSessao: 	    String (Obrigatorio) 	:: codigo que identifica uma sess√£o do Plen√°rio
-            numOrador: 	    Inteiro (Obrigatorio) 	:: Identificador do orador na sess√£o
-            numQuarto: 	    Inteiro (Obrigatorio) 	:: N√∫mero da fra√ß√£o taquigr√°fica que identifica o in√≠cio do discurso
-            numInsercao: 	Inteiro (Obrigatorio) 	:: N√∫mero da inser√ß√£o taquigr√°fica que identifica o in√≠cio do discurso
+            codSessao: 	    String (Obrigatorio) 	:: codigo que identifica uma sess„o do Plen·rio
+            numOrador: 	    Inteiro (Obrigatorio) 	:: Identificador do orador na sess„o
+            numQuarto: 	    Inteiro (Obrigatorio) 	:: N˙mero da fraÁ„o taquigr·fica que identifica o inÌcio do discurso
+            numInsercao: 	Inteiro (Obrigatorio) 	:: N˙mero da inserÁ„o taquigr·fica que identifica o inÌcio do discurso
         """
         base_url = 'http://www.camara.gov.br/SitCamaraWS/SessoesReunioes.asmx/obterInteiroTeorDiscursosPlenario?'
         params = dict([ ('codSessao', codSessao),

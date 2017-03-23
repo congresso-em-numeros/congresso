@@ -1,4 +1,4 @@
-from cn_api_client.connection import Connection
+from congresso_api.connection import Connection
 from unittest import TestCase
 import pytest
 

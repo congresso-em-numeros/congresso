@@ -31,7 +31,7 @@ if on_rtd:
         inspect.getfile(inspect.currentframe())))
 
     output_dir = os.path.join(__location__, "../docs/api")
-    module_dir = os.path.join(__location__, "../cn_api_client")
+    module_dir = os.path.join(__location__, "../congresso")
     cmd_line_template = "sphinx-apidoc -f -o {outputdir} {moduledir}"
     cmd_line = cmd_line_template.format(outputdir=output_dir, moduledir=module_dir)
     apidoc.main(cmd_line.split(" "))
@@ -61,7 +61,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'cn_api_client'
+project = u'congresso'
 copyright = u'2017, joao.carabetta@gmail.com'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -193,7 +193,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'cn_api_client-doc'
+htmlhelp_basename = 'congresso-doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -212,7 +212,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'user_guide.tex', u'cn_api_client Documentation',
+  ('index', 'user_guide.tex', u'congresso Documentation',
    u'joao.carabetta@gmail.com', 'manual'),
 ]
 

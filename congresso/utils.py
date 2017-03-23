@@ -10,6 +10,8 @@ def _make_url(api_house=None, base_url= None, params=None):
         The API url
     """
 
+
+
     if api_house == None:
         raise ReferenceError ('No API House Specified')
 
@@ -17,9 +19,9 @@ def _make_url(api_house=None, base_url= None, params=None):
         raise ReferenceError ('No Base Url Specified')
 
     elif api_house == 'camara':
-
         # EndPoints
         for i, items in enumerate(params.items()):
+
             key, value = [_treat_inputs(i) for i in items]
 
             if value == None:
@@ -31,7 +33,6 @@ def _make_url(api_house=None, base_url= None, params=None):
 
                 base_url += '&'
 
-    print(base_url)
     return base_url
 
 def _treat_inputs(value):
@@ -45,6 +46,8 @@ def _treat_inputs(value):
 
     Returns: Ints and floats are converted to strings
     """
+    if value is None:
+        return value
 
     if not isinstance(value, (int, float, str)):
         raise AttributeError('This is a {}.\n'
